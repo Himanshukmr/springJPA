@@ -31,6 +31,19 @@ public class DemoOfSpringJpaApplication  implements CommandLineRunner{
 		// TODO Auto-generated method stub
 		
 		logger.info("Person with id 1001 user --> {}",personJpaRepository.findById(10001));
+		
+		logger.info("Person with id 1001 user --> {}",personJpaRepository.update(new Person(10001,"Micky","New York",new Date())));
+		
+		logger.info("Person with id 1001 user --> {}",personJpaRepository.insert(new Person(10009,"Raju","Hyderabad",new Date())));
+		
+		//In case of inserting new Obj we don't need to pass the id the hibernate will generate for us
+		logger.info("Person with id 1001 user --> {}",personJpaRepository.insert(new Person("Sonu","Bihar",new Date())));
+		
+		personJpaRepository.deleteById(10001);
+		
+		logger.info("All perons obj by using findAll method --> {}",personJpaRepository.findAll());
+		
+		
 	
 	}
 

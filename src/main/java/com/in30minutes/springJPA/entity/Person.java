@@ -5,7 +5,10 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 @Entity
+//query is being written using JPQL(Java Persistent Query Language)
+@NamedQuery(name="find_all_perons",query="select p from Person p")
 public class Person {
 
 	@Id
@@ -23,6 +26,14 @@ public class Person {
 	public Person(int id, String name, String location, Date birth_date) {
 		super();
 		this.id = id;
+		this.name = name;
+		this.location = location;
+		this.birth_date = birth_date;
+	}
+
+	public Person(String name, String location, Date birth_date) {
+		// TODO Auto-generated constructor stub
+		super();
 		this.name = name;
 		this.location = location;
 		this.birth_date = birth_date;
